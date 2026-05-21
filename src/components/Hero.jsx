@@ -11,11 +11,11 @@ const Hero = () => {
       <div className="absolute -bottom-8 left-1/2 w-80 h-80 bg-brand-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
 
       <div className="container mx-auto px-6 md:px-12 z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-12 lg:gap-x-24 items-center min-h-[calc(100vh-100px)] lg:min-h-0 py-10 lg:py-0">
           
-          {/* Left Content */}
+          {/* Text Content (Order 1 on mobile, Col 1 Row 1 on desktop) */}
           <motion.div 
-            className="flex-1 text-center lg:text-left"
+            className="text-center lg:text-left order-1 lg:col-start-1 lg:row-start-1 lg:self-end lg:pb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -49,32 +49,18 @@ const Hero = () => {
             </motion.h3>
             
             <motion.p 
-              className="text-brand-light text-lg mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+              className="text-brand-light text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
               Passionate about people management, marketing strategies, and organizational growth.
             </motion.p>
-            
-            <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              <a href="#" className="btn-primary w-full sm:w-auto text-center">
-                Download Resume
-              </a>
-              <a href="#contact" className="btn-secondary w-full sm:w-auto text-center">
-                Contact Me
-              </a>
-            </motion.div>
           </motion.div>
 
-          {/* Right Content - Abstract Blob / Image */}
+          {/* Photo (Order 2 on mobile, Col 2 Row 1 & 2 on desktop) */}
           <motion.div 
-            className="flex-1 relative flex justify-center items-center"
+            className="relative flex justify-center items-center order-2 lg:col-start-2 lg:row-start-1 lg:row-span-2"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
@@ -105,6 +91,21 @@ const Hero = () => {
                 <div className="w-10 h-10 border-4 border-brand-soft rounded-full"></div>
               </motion.div>
             </div>
+          </motion.div>
+
+          {/* Buttons Content (Order 3 on mobile, Col 1 Row 2 on desktop) */}
+          <motion.div 
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 order-3 lg:col-start-1 lg:row-start-2 lg:self-start lg:pt-4 w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+          >
+            <a href="#" className="btn-primary w-full sm:w-auto text-center">
+              Download Resume
+            </a>
+            <a href="#contact" className="btn-secondary w-full sm:w-auto text-center">
+              Contact Me
+            </a>
           </motion.div>
 
         </div>
